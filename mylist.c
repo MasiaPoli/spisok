@@ -43,7 +43,7 @@ mylist* create_copy(mylist* a)
     st->prev=b;
     return st;
 }
-void add_after(mylist* a, int x)
+mylist* add_after(mylist* a, int x)
 {
     mylist* b=malloc(sizeof(mylist));
     b->num=x;
@@ -52,8 +52,14 @@ void add_after(mylist* a, int x)
     b->next=a->next;
     a->next->prev=b;
     a->next=b;
+    if(!a->isel)
+    {
+        a=a->next;
+
+    }
+    return a;
 }
-void add_before(mylist* a, int x)
+mylist* add_before(mylist* a, int x)
 {
     mylist* b=malloc(sizeof(mylist));
     b->num=x;
@@ -62,34 +68,42 @@ void add_before(mylist* a, int x)
     b->prev=a->prev;
     a->prev->next=b;
     a->prev=b;
+    if(!a->isel)
+    {
+        a=a->prev;
+    }
+    return a;
 }
-void del_cur(mylist* a)
+mylist* del_cur(mylist* a)
 {
     if(a->isel==0)
     {
-        return;
+        return a;
     }
     a->prev->next=a->next;
     a->next->prev=a->prev;
     mylist* b=a;
     a=a->next;
     free(b);
+    return a;
 }
-void go_next(mylist* a)
+mylist* go_next(mylist* a)
 {
     a=a->next;
     if(!a->isel)
     {
         a=a->next;
     }
+    return a;
 }
-void go_prev(mylist* a)
+mylist* go_prev(mylist* a)
 {
     a=a->prev;
     if(!a->isel)
     {
         a=a->prev;
     }
+    return a;
 }
 int ret_cur(mylist* a)
 {

@@ -26,15 +26,15 @@ int main()
             break;
         case 2:
             scanf("%d%d", &k, &x);
-            add_after(a[k], x);
+            a[k]=add_after(a[k], x);
             break;
         case 3:
             scanf("%d%d", &k, &x);
-            add_before(a[k], x);
+           a[k]= add_before(a[k], x);
             break;
         case 4:
             scanf("%d", &k);
-            del_cur(a[k]);
+            a[k]=del_cur(a[k]);
             break;
         case 5:
             scanf("%d", &k);
@@ -42,11 +42,11 @@ int main()
             break;
         case 6:
             scanf("%d", &k);
-            go_next(a[k]);
+            a[k]=go_next(a[k]);
             break;
         case 7:
             scanf("%d", &k);
-            go_prev(a[k]);
+            a[k]=go_prev(a[k]);
             break;
         case 8:
             for(int i=0; i<n; i++)
