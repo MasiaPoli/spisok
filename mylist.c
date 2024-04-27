@@ -138,5 +138,5 @@ void list_free(mylist* a)
     {
         a=del_cur(a);
     }
-    del_cur(a);
+    free(a);
 }
