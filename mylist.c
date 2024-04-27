@@ -85,6 +85,10 @@ mylist* del_cur(mylist* a)
     mylist* b=a;
     a=a->next;
     free(b);
+    if(!a->isel)
+    {
+        a=a->next;
+    }
     return a;
 }
 mylist* go_next(mylist* a)
