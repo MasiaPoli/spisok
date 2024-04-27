@@ -136,7 +136,7 @@ void list_free(mylist* a)
 {
     while(a->next!=a)
     {
-        del_cur(a->next);
+        a=del_cur(a);
     }
     del_cur(a);
 }
